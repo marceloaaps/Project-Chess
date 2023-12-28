@@ -49,8 +49,10 @@ public class UI {
         }
     }
 
-    public static void printMatch(ChessMatch chessMatch){
+    public static void printMatch(ChessMatch chessMatch, List<ChessPiece> captured){
         printBoard(chessMatch.getPieces());
+        System.out.println();
+        printCapturedPieces(captured);
         System.out.println();
         System.out.println("Turn : " + chessMatch.getTurn());
         System.out.println("Rodada do jogador: " + chessMatch.getCurrentPlayer());
@@ -88,12 +90,11 @@ public class UI {
         List <ChessPiece> black = captured.stream().filter(x -> x.getColor() == Color.BLACK).toList();
         System.out.println("Pecas capturadas:");
         System.out.print("Pecas Brancas:");
-        System.out.println(ANSI_WHITE);
         System.out.println(Arrays.toString(white.toArray()));
-        System.out.println(ANSI_RESET);
         System.out.print("Pecas Pretas:");
-        System.out.println(ANSI_RED);
         System.out.println(Arrays.toString(black.toArray()));
+        System.out.println();
+
     }
 
     public static void printBoard(ChessPiece[][] pieces, boolean[][] possibleMoves) {
