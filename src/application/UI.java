@@ -56,6 +56,9 @@ public class UI {
         System.out.println();
         System.out.println("Turn : " + chessMatch.getTurn());
         System.out.println("Rodada do jogador: " + chessMatch.getCurrentPlayer());
+        if(chessMatch.getCheck()){
+            System.out.println("Você está em Xeque!");
+        }
     }
 
     public static void printBoard(ChessPiece[][] pieces) {
