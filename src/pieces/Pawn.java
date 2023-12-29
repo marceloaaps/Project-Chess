@@ -15,7 +15,6 @@ public class Pawn extends ChessPiece {
         this.chessMatch = chessMatch;
     }
 
-
     @Override
     public String toString() {
         return "P";

@@ -1,12 +1,6 @@
 package application;
 
-import boardgame.Board;
-import boardgame.BoardException;
-import boardgame.Position;
-import chess.ChessException;
-import chess.ChessMatch;
-import chess.ChessPiece;
-import chess.ChessPosition;
+import chess.*;
 
 import java.util.ArrayList;
 import java.util.InputMismatchException;
@@ -37,10 +31,20 @@ public class Program {
                 System.out.println("Target: ");
                 ChessPosition target = UI.readChessPosition(sc);
 
-                ChessPiece capturedPiece = chessMatch.performeChessMove(source, target);
+                ChessPiece capturedPiece = chessMatch.performChessMove(source, target);
 
                 if (capturedPiece != null){
                     captured.add(capturedPiece);
+                }
+
+                if (chessMatch.getPromoted() != null){
+                    System.out.println("Digite a peça que será promovida (Q/T/B/C): ");
+                    String type = sc.nextLine().toUpperCase();
+                    while (!type.equals("Q") && !type.equals("T") && !type.equals("B") && !type.equals("C")) {
+                        System.out.println("Essa peça não existe ou não pode ser promovida. Digite novamente a peça que será promovida (Q/T/B/C): ");
+                        type = sc.nextLine().toUpperCase();
+                    }
+                    chessMatch.replacePromotedPiece(type);
                 }
             }
             catch (ChessException | InputMismatchException e){
