@@ -9,7 +9,7 @@ Esse projeto foi feito com a intenção de reforçar o conhecimento em Java e Pr
 
      • Java 21
      
-     •  IntelliJ IDEA
+     • IntelliJ IDEA
 
 
 ## Conceitos Utilizados
